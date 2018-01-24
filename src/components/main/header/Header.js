@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import icMenu from '../../icons/ic_menu_black.png';
+import icMenu from '../../../icons/ic_menu_black.png';
 
 export default class Header extends Component {
     onPress() {
-
+        this.props.navigation.navigate('DrawerOpen');
     }
 
     render() {
