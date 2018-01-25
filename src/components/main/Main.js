@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     newProductTitle: {
         marginHorizontal: 8,
         fontWeight: 'bold',
-        fontSize: 20
+        fontSize: 20,
+        alignSelf: 'center',
     },
     product: {
         flexDirection: 'row',
