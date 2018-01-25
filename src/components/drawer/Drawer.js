@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { Text, StyleSheet, FlatList, TouchableOpacity, Image, View } from 'react-native';
 import icHome from '../../icons/ic_home.png';
 import icPhone from '../../icons/ic_smartphone.png';
 import icLaptop from '../../icons/ic_laptop.png';
 import icContact from '../../icons/ic_contacts.png';
 import icInfo from '../../icons/ic_info.png';
+import icCart from '../../icons/ic_shopping_cart.png';
 
 
 export default class Drawer extends Component {
@@ -15,6 +16,7 @@ export default class Drawer extends Component {
                 { id: 1, name: 'Trang chính', icon: icHome },
                 { id: 2, name: 'Điện thoại', icon: icPhone },
                 { id: 3, name: 'Laptop', icon: icLaptop },
+                { id: 6, name: 'Giỏ hàng của tôi', icon: icCart },
                 { id: 4, name: 'Liên hệ', icon: icContact, },
                 { id: 5, name: 'Thông tin', icon: icInfo }
             ],
@@ -36,14 +38,18 @@ export default class Drawer extends Component {
     }
 
     render() {
-        const { container } = styles;
+        const { container, signInButton } = styles;
         return (
-            <FlatList
-                style={container}
-                data={this.state.menus}
-                renderItem={({ item }) => this.renderItem(item)}
-                keyExtractor={item => item.id}
-            />
+            <View style={container}>
+                <FlatList
+                    data={this.state.menus}
+                    renderItem={({ item }) => this.renderItem(item)}
+                    keyExtractor={item => item.id}
+                />
+                <TouchableOpacity style={signInButton}>
+                    <Text style={{ color: 'white' }}>Đăng nhập</Text>
+                </TouchableOpacity>
+            </View>
         );
     }
 }
@@ -61,5 +67,14 @@ const styles = StyleSheet.create({
     },
     image: {
         marginRight: 16
+    },
+    signInButton: {
+        backgroundColor: 'green',
+        borderColor: 'black',
+        borderRadius: 4,
+        margin: 8,
+        padding: 8,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
