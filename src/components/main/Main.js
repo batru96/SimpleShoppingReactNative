@@ -1,44 +1,40 @@
 import React, { Component } from 'react';
-import { View, Image, StyleSheet, Dimensions, ScrollView, Text } from 'react-native';
-import Swiper from 'react-native-swiper';
+import { View, StyleSheet, ScrollView, Text, FlatList } from 'react-native';
 import Header from './header/Header';
 import ProductCard from './product/ProductCard';
-import pic1 from '../../icons/1.jpg';
-import pic2 from '../../icons/2.jpg';
-import pic3 from '../../icons/3.jpg';
+import ProductSwiper from './swiper/ProductSwiper';
 import image1 from '../../icons/image1.jpg';
 
-const { width } = Dimensions.get('window');
 export default class Main extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            products: [
+                { id: 1, name: 'Nokia Lumia 9520', price: '12.000.000d', image: image1 },
+                { id: 2, name: 'Nokia Lumia 9520', price: '12.500.000d', image: image1 },
+                { id: 3, name: 'Nokia Lumia 9520', price: '12.000.000d', image: image1 },
+                { id: 4, name: 'Nokia Lumia 9520', price: '12.000.000d', image: image1 },
+                { id: 5, name: 'Nokia Lumia 9520', price: '12.000.000d', image: image1 },
+                { id: 6, name: 'Nokia Lumia 9520', price: '12.000.000d', image: image1 },
+            ],
+        };
+    }
     render() {
-        const {
-            container, imageSwiper, swiper, product, productContainer, newProductTitle
-        } = styles;
+        const { container, productContainer, newProductTitle } = styles;
+        const { products } = this.state;
         return (
             <View style={container}>
-                <Header navigation={this.props.navigation} />
+                <Header navigation={this.props.navigation} type={0} />
                 <ScrollView>
-                    <View style={swiper}>
-                        <Swiper showButtons={false} autoplay autoplayTimeout={4}>
-                            <Image source={pic1} style={imageSwiper} />
-                            <Image source={pic2} style={imageSwiper} />
-                            <Image source={pic3} style={imageSwiper} />
-                        </Swiper>
-                    </View>
+                    <ProductSwiper />
                     <View style={productContainer}>
                         <Text style={newProductTitle}>Sản phẩm mới nhất</Text>
-                        <View style={product}>
-                            <ProductCard img={image1} />
-                            <ProductCard img={image1} />
-                        </View>
-                        <View style={product}>
-                            <ProductCard img={image1} />
-                            <ProductCard img={image1} />
-                        </View>
-                        <View style={product}>
-                            <ProductCard img={image1} />
-                            <ProductCard img={image1} />
-                        </View>
+                        <FlatList
+                            data={products}
+                            keyExtractor={item => item.id}
+                            numColumns={2}
+                            renderItem={({ item }) => <ProductCard item={item} />}
+                        />
                     </View>
                 </ScrollView>
             </View>
@@ -49,14 +45,6 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-    },
-    swiper: {
-        height: (width * 354) / 800
-    },
-    imageSwiper: {
-        flex: 1,
-        width,
-        alignItems: 'center'
     },
     productContainer: {
         flex: 1,

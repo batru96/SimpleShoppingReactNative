@@ -4,16 +4,20 @@ import { View, TouchableOpacity, StyleSheet, Image, Text, Dimensions } from 'rea
 const { width } = Dimensions.get('window');
 
 class ProductCard extends Component {
+    onPress(itemId) {
+        console.log(itemId);
+    }
     render() {
-        const { container, image } = styles;
+        const { container, img } = styles;
+        const { id, name, price, image } = this.props.item;
         return (
             <View style={container}>
-                <TouchableOpacity>
-                    <Image style={image} source={this.props.img} />
+                <TouchableOpacity onPress={() => this.onPress(id)}>
+                    <Image style={img} source={image} />
                 </TouchableOpacity>
                 <View style={{ alignItems: 'center' }}>
-                    <Text>Nokia Lumia 9520P</Text>
-                    <Text>12 000 000 d</Text>
+                    <Text>{name}</Text>
+                    <Text>{price}</Text>
                 </View>
             </View>
         );
@@ -28,8 +32,9 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: 'white',
         borderRadius: 4,
+        marginTop: 8
     },
-    image: {
+    img: {
         width: (width / 2) - 8,
         height: (width / 2) - 8
     }
