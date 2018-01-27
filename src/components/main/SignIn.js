@@ -27,7 +27,6 @@ export default class SignIn extends Component {
         const fragment = this.state.isSignIn ? <SignInForm /> : <SignUpForm />;
         return (
             <ImageBackground style={background} source={backgroundImage}>
-                <Header type={1} />
                 <View style={container}>
                     {fragment}
                 </View>

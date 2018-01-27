@@ -22,7 +22,6 @@ class ProductDetail extends Component {
         const { content, container, addCartButton, addCartText, title } = styles;
         return (
             <View style={container}>
-                <Header type={1} />
                 <ProductSwiper />
                 <Text style={title}>Thông tin chi tiết</Text>
                 <FlatList

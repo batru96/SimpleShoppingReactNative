@@ -16,7 +16,6 @@ class ListCart extends Component {
         const { products } = this.state;
         return (
             <View style={container}>
-                <Header style={1} />
                 <FlatList
                     data={products}
                     renderItem={({ item }) => <ListCartItem item={item} />}

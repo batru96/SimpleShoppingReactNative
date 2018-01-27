@@ -24,7 +24,6 @@ export default class Main extends Component {
         const { products } = this.state;
         return (
             <View style={container}>
-                <Header navigation={this.props.navigation} type={0} />
                 <ScrollView>
                     <ProductSwiper />
                     <View style={productContainer}>

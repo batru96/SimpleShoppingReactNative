@@ -27,6 +27,10 @@ export default class Drawer extends Component {
         console.log(itemId);
     }
 
+    goToSignIn() {
+        this.props.navigation.navigate('SIGN_IN');
+    }
+
     renderItem(item) {
         const { button, image } = styles;
         return (
@@ -46,7 +50,7 @@ export default class Drawer extends Component {
                     renderItem={({ item }) => this.renderItem(item)}
                     keyExtractor={item => item.id}
                 />
-                <TouchableOpacity style={signInButton}>
+                <TouchableOpacity style={signInButton} onPress={this.goToSignIn.bind(this)}>
                     <Text style={{ color: 'white' }}>Đăng nhập</Text>
                 </TouchableOpacity>
             </View>
