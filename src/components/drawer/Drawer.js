@@ -7,8 +7,7 @@ import icContact from '../../icons/ic_contacts.png';
 import icInfo from '../../icons/ic_info.png';
 import icCart from '../../icons/ic_shopping_cart.png';
 
-
-export default class Drawer extends Component {
+class Drawer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,7 +23,9 @@ export default class Drawer extends Component {
     }
 
     onPress(itemId) {
-        console.log(itemId);
+        if (itemId === 6) {
+            this.props.navigation.navigate('LIST_CART');
+        }
     }
 
     goToSignIn() {
@@ -33,6 +34,7 @@ export default class Drawer extends Component {
 
     renderItem(item) {
         const { button, image } = styles;
+
         return (
             <TouchableOpacity style={button} onPress={() => this.onPress(item.id)}>
                 <Image style={image} source={item.icon} />
@@ -40,6 +42,7 @@ export default class Drawer extends Component {
             </TouchableOpacity>
         );
     }
+
 
     render() {
         const { container, signInButton } = styles;
@@ -82,3 +85,5 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
+
+export default Drawer;

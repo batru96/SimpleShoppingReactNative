@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
-import Header from './header/Header';
 import SignInForm from './signIn/SignInForm';
 import SignUpForm from './signIn/SignUpForm';
+import Header from './header/Header';
 import backgroundImage from '../../images/login_background.jpg';
 
 export default class SignIn extends Component {
@@ -22,11 +22,11 @@ export default class SignIn extends Component {
     }
 
     render() {
-        console.log('render');
         const { background, container, fragmentContainer, replaceButton, buttonText } = styles;
         const fragment = this.state.isSignIn ? <SignInForm /> : <SignUpForm />;
         return (
             <ImageBackground style={background} source={backgroundImage}>
+                <Header isHome={false} navigation={this.props.navigation} />
                 <View style={container}>
                     {fragment}
                 </View>

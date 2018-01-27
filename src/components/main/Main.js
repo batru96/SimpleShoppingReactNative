@@ -22,9 +22,11 @@ export default class Main extends Component {
     render() {
         const { container, productContainer, newProductTitle } = styles;
         const { products } = this.state;
+        const { navigation } = this.props;
         return (
             <View style={container}>
                 <ScrollView>
+                    <Header isHome navigation={navigation} />
                     <ProductSwiper />
                     <View style={productContainer}>
                         <Text style={newProductTitle}>Sản phẩm mới nhất</Text>
@@ -32,7 +34,7 @@ export default class Main extends Component {
                             data={products}
                             keyExtractor={item => item.id}
                             numColumns={2}
-                            renderItem={({ item }) => <ProductCard item={item} />}
+                            renderItem={({ item }) => <ProductCard navigation={navigation} item={item} />}
                         />
                     </View>
                 </ScrollView>

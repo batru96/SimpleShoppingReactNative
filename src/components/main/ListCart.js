@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
-import Header from './header/Header';
 import ListCartItem from './listcart/ListCartItem';
+import Header from './header/Header';
 
 class ListCart extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class ListCart extends Component {
         const { products } = this.state;
         return (
             <View style={container}>
+                <Header navigation={this.props.navigation} isHome={false} />
                 <FlatList
                     data={products}
                     renderItem={({ item }) => <ListCartItem item={item} />}

@@ -5,7 +5,7 @@ const { width } = Dimensions.get('window');
 
 class ProductCard extends Component {
     onPress(itemId) {
-        console.log(itemId);
+        this.props.navigation.navigate('PRODUCT_DETAIL');
     }
     render() {
         const { container, img } = styles;

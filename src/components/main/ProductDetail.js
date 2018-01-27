@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
-import Header from './header/Header';
 import ProductSwiper from './swiper/ProductSwiper';
+import Header from './header/Header';
 
 class ProductDetail extends Component {
     constructor(props) {
@@ -22,6 +22,7 @@ class ProductDetail extends Component {
         const { content, container, addCartButton, addCartText, title } = styles;
         return (
             <View style={container}>
+                <Header navigation={this.props.navigation} isHome={false} />
                 <ProductSwiper />
                 <Text style={title}>Thông tin chi tiết</Text>
                 <FlatList

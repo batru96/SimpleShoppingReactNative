@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
 import icMenu from '../../../icons/ic_menu_black.png';
 import icBack from '../../../icons/ic_back.png';
 
-class Header extends Component {  
+export default class Header extends Component {
     onPress() {
-        this.props.dispatch({ type: 'GO_TO_SIGN_IN' });
+        const { isHome, navigation } = this.props;
+        if (isHome) {
+            navigation.navigate('DrawerOpen');
+        } else {
+            navigation.goBack();
+        }
     }
 
     render() {
         const { container, title } = styles;
-        const icon = this.props.screeName === 'HOME' ? icMenu : icBack;
+        const icon = this.props.isHome ? icMenu : icBack;
         return (
             <View style={container}>
                 <TouchableOpacity onPress={this.onPress.bind(this)}>
@@ -36,11 +40,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 });
-
-function mapStateToProps(state) {
-    return {
-        screeName: state.screeReducer,
-    };
-}
-
-export default connect(mapStateToProps)(Header);

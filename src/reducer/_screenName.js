@@ -1,4 +1,4 @@
-const screenReducer = (state = 'HOME', action) => {
+const screenName = (state = 'SIGN_IN', action) => {
     switch (action.type) {
         case 'GO_TO_SIGN_IN':
             return 'SIGN_IN';
@@ -11,4 +11,4 @@ const screenReducer = (state = 'HOME', action) => {
     }
 };
 
-export default screenReducer;
+export default screenName;
