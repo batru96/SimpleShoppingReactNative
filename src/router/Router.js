@@ -5,6 +5,9 @@ import Drawer from '../components/drawer/Drawer';
 import SignIn from '../components/main/SignIn';
 import ListCart from '../components/main/ListCart';
 import ProductDetail from '../components/main/ProductDetail';
+import ListProduct from '../components/main/ListProduct';
+import Contact from '../components/main/Contact';
+import Information from '../components/main/Information';
 
 const Router = DrawerNavigator({
     HOME: {
@@ -37,6 +40,24 @@ const MainStack = StackNavigator({
     },
     PRODUCT_DETAIL: {
         screen: ProductDetail,
+        navigationOptions: {
+            header: null
+        }
+    },
+    LIST_PRODUCT: {
+        screen: ListProduct,
+        navigationOptions: {
+            header: null
+        }
+    },
+    INFORMATION: {
+        screen: Information,
+        navigationOptions: {
+            header: null
+        }
+    },
+    CONTACT: {
+        screen: Contact,
         navigationOptions: {
             header: null
         }

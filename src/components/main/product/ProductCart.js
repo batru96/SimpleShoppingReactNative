@@ -3,7 +3,7 @@ import { View, TouchableOpacity, StyleSheet, Image, Text, Dimensions } from 'rea
 
 const { width } = Dimensions.get('window');
 
-class ProductCard extends Component {
+class ProductCart extends Component {
     onPress(itemId) {
         this.props.navigation.navigate('PRODUCT_DETAIL');
     }
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ProductCard;
+export default ProductCart;

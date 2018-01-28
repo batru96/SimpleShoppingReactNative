@@ -17,15 +17,32 @@ class Drawer extends Component {
                 { id: 3, name: 'Laptop', icon: icLaptop },
                 { id: 6, name: 'Giỏ hàng của tôi', icon: icCart },
                 { id: 4, name: 'Liên hệ', icon: icContact, },
-                { id: 5, name: 'Thông tin', icon: icInfo }
+                { id: 5, name: 'Thông tin', icon: icInfo },
             ],
         };
     }
 
-    onPress(itemId) {
-        if (itemId === 6) {
-            this.props.navigation.navigate('LIST_CART');
+    onPress(name) {
+        const { navigation } = this.props;
+        let label = '';
+        switch (name) {
+            case 'Trang chính':
+                navigation.navigate('DrawerClose');
+                return;
+            case 'Giỏ hàng của tôi':
+                label = 'LIST_CART';
+                break;
+            case 'Liên hệ':
+                label = 'CONTACT';
+                break;
+            case 'Thông tin':
+                label = 'INFORMATION';
+                break;
+            default:
+                label = 'LIST_PRODUCT';
+                break;
         }
+        if (name !== '') this.props.navigation.navigate(label);
     }
 
     goToSignIn() {
@@ -36,7 +53,7 @@ class Drawer extends Component {
         const { button, image } = styles;
 
         return (
-            <TouchableOpacity style={button} onPress={() => this.onPress(item.id)}>
+            <TouchableOpacity style={button} onPress={() => this.onPress(item.name)}>
                 <Image style={image} source={item.icon} />
                 <Text>{item.name}</Text>
             </TouchableOpacity>

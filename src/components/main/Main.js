@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, ScrollView, Text, FlatList } from 'react-native';
 import Header from './header/Header';
-import ProductCard from './product/ProductCard';
+import ProductCart from './product/ProductCart';
 import ProductSwiper from './swiper/ProductSwiper';
 import image1 from '../../icons/image1.jpg';
 
@@ -34,7 +34,9 @@ export default class Main extends Component {
                             data={products}
                             keyExtractor={item => item.id}
                             numColumns={2}
-                            renderItem={({ item }) => <ProductCard navigation={navigation} item={item} />}
+                            renderItem={({ item }) =>
+                                <ProductCart navigation={navigation} item={item} />
+                            }
                         />
                     </View>
                 </ScrollView>
