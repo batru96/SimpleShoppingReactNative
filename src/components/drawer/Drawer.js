@@ -60,9 +60,8 @@ class Drawer extends Component {
         );
     }
 
-
     render() {
-        const { container, signInButton } = styles;
+        const { container, signInButton, signInBtnText } = styles;
         return (
             <View style={container}>
                 <FlatList
@@ -71,7 +70,7 @@ class Drawer extends Component {
                     keyExtractor={item => item.id}
                 />
                 <TouchableOpacity style={signInButton} onPress={this.goToSignIn.bind(this)}>
-                    <Text style={{ color: 'white' }}>Đăng nhập</Text>
+                    <Text style={signInBtnText}>Đăng nhập</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -100,6 +99,9 @@ const styles = StyleSheet.create({
         padding: 8,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    signInBtnText: {
+        color: 'white'
     }
 });
 

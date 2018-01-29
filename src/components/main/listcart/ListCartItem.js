@@ -5,6 +5,14 @@ import icAdd from '../../../icons/ic_add.png';
 import icMinus from '../../../icons/ic_minus.png';
 
 export default class ListCartItem extends Component {
+    showDetail() {
+
+    }
+
+    removeItem() {
+
+    }
+
     render() {
         const {
             cart, productName, image, content, price, stateContainer, plusButton,
@@ -12,7 +20,9 @@ export default class ListCartItem extends Component {
         } = styles;
         return (
             <View style={cart}>
-                <Image style={image} source={picture} />
+                <TouchableOpacity onPress={this.showDetail.bind(this)}>
+                    <Image style={image} source={picture} />
+                </TouchableOpacity>
                 <View style={content}>
                     <Text style={productName}>Samsung Galaxy S8 HD</Text>
                     <Text style={price}>Price: 12.499.000 Đ</Text>
@@ -26,7 +36,7 @@ export default class ListCartItem extends Component {
                                 <Image source={icAdd} />
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity style={removeContainer}>
+                        <TouchableOpacity style={removeContainer} onPress={this.removeContainer.bind(this)}>
                             <Text style={removeText}>Remove</Text>
                         </TouchableOpacity>
                     </View>

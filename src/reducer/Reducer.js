@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
-import screenName from './_screenName';
-import isDrawerOpen from './_isDrawerOpen';
+import isSearching from './_isSearching';
 
-const reducer = combineReducers({ screenName, isDrawerOpen });
+const reducer = combineReducers({ isSearching });
 
 export default reducer;
